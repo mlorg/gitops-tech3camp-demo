@@ -13,3 +13,9 @@ patches:
         value: { "matchLabels": {"type": "db"} }
     target:
       kind: StatefulSet
+  - patch: |-
+      - op: replace
+        path: /spec/rules/0/http/paths/0/path
+        value: /
+    target:
+      kind: Ingress
