@@ -10,3 +10,9 @@ patches:
         path: /spec/rules/0/host
     target:
       kind: Ingress
+  - patch: |-
+      - op: replace
+        path: /spec/volumeClaimTemplates/0/spec/storageClassName
+        value: standard
+    target:
+      kind: StatefulSet
