@@ -24,6 +24,7 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /var/lib/mysql
+          subPath: mysql
         env:
           - name: MYSQL_ROOT_PASSWORD
             value: ''
