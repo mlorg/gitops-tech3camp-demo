@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: petclinic-db
+  labels:
+    service: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: db
+  template:
+    metadata:
+      labels:
+        service: db
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        ports:
+        - containerPort: 3306
+          name: db
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: ''
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: 'true'
+          - name: MYSQL_USER
+            value: petclinic
+          - name: MYSQL_PASSWORD
+            value: petclinic
+          - name: MYSQL_DATABASE
+            value: petclinic
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+      selector:
+        matchLabels:
+          type: db
