@@ -40,7 +40,7 @@ spec:
       name: data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: azurefile
+      storageClassName: default
       resources:
         requests:
           storage: 1Gi
