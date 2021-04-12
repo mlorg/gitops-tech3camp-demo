@@ -3,3 +3,13 @@ kind: Kustomization
 
 resources:
   - ../../base
+
+patches:
+  - patch: |-
+      - op: remove
+        path: /spec/volumeClaimTemplates/0/spec/storageClassName
+      - op: add
+        path: /spec/volumeClaimTemplates/0/spec/selector
+        value: { "matchLabels": {"type": "db"} }
+    target:
+      kind: StatefulSet
