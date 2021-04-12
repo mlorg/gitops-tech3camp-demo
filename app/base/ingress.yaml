@@ -4,8 +4,7 @@ metadata:
   name: petclinic
 spec:
   rules:
-    - host: petclinic.apps-crc.testing
-      http:
+    - http:
         paths:
           - path: /
             pathType: ImplementationSpecific
@@ -14,3 +13,4 @@ spec:
                 name: petclinic-app
                 port:
                   number: 8080
+      host: petclinic.apps-crc.testing
