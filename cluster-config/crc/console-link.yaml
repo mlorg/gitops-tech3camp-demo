@@ -1,0 +1,8 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: tech3camp-link
+spec:
+  href: 'https://tech.3camp.pl/#main'
+  location: NamespaceDashboard
+  text: TECH3CAMP site
