@@ -19,3 +19,9 @@ patches:
         value: /
     target:
       kind: Ingress
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value: {"name": "APP_NAV_COLOR","value": "blue"}
+    target:
+      kind: Deployment

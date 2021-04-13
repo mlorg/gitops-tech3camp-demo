@@ -16,3 +16,9 @@ patches:
         value: standard
     target:
       kind: StatefulSet
+  - patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/env/-
+        value: {"name": "APP_NAV_COLOR","value": "yellow"}
+    target:
+      kind: Deployment
