@@ -19,6 +19,6 @@ patches:
   - patch: |-
       - op: add
         path: /spec/template/spec/containers/0/env/-
-        value: {"name": "APP_NAV_COLOR","value": "yellow"}
+        value: {"name": "APP_NAV_COLOR","value": "black"}
     target:
       kind: Deployment
