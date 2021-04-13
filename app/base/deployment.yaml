@@ -24,6 +24,8 @@ spec:
               value: mysql
             - name: MYSQL_URL
               value: 'jdbc:mysql://petclinic-db:3306/petclinic'
+            - name: APP_NAV_COLOR
+              value: red
           readinessProbe:
             httpGet:
               path: /
