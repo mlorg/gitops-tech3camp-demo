@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: petclinic-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mlorg/gitops-tech3camp-demo.git
+    targetRevision: HEAD
+    path: app/base
+  destination:
+    name: in-cluster
+    namespace: petclinic
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
